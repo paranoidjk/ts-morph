@@ -308,6 +308,10 @@ describe(nameof(ClassLikeDeclarationBase), () => {
         it("should add at the end", () => {
             doTest("class c {\n    prop1;\n}", {}, "class c {\n    prop1;\n\n    constructor() {\n    }\n}");
         });
+
+        it("class with empty comments", () => {
+            doTest("class c {\n //\n}", {}, "class c {\n //\n\n constructor() {\n    }\n}");
+        });
     });
 
     describe(nameof<ClassLikeDeclarationBase>(d => d.addConstructors), () => {
